@@ -13,7 +13,7 @@ class StudentController extends Controller
         
         $data = [
             'student_id' => '2024-00127',
-            'name'       => 'Khate Lyn M. De Leon',
+            'name'       => 'Khate Lyn   M. De Leon',
             'course'     => 'BS Information Technology',
             'year'       => '3rd Year',
             'section'    => '3F3',
