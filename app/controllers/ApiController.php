@@ -227,11 +227,17 @@ class ApiController extends Controller
     private function require_admin(): array
     {
         $auth = $this->api->require_jwt();
+        $user = $this->UsersModel->find((int) $auth['sub']);
 
-        if (($auth['role'] ?? null) !== 'admin') {
+        if (!$user || (isset($user['is_active']) && !(bool) $user['is_active'])) {
+            $this->api->respond_error('Account is unavailable.', 403);
+        }
+
+        if (($user['role'] ?? null) !== 'admin') {
             $this->api->respond_error('Administrator access required.', 403);
         }
 
+        $auth['role'] = $user['role'];
         return $auth;
     }
 

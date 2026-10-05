@@ -581,7 +581,7 @@ class Api
         }
 
         $user = $this->_lava->db->raw(
-            'SELECT role, is_active FROM users WHERE id = ? LIMIT 1',
+            'SELECT role, is_active FROM user WHERE id = ? LIMIT 1',
             [(int) $payload['sub']]
         )->fetch(PDO::FETCH_ASSOC);
 
