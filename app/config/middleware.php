@@ -41,8 +41,6 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 | Used for adding middlewares
 |
 */
-$config['middlewares'] = [];
-
 require_once APP_DIR . 'middlewares/StudentMiddleware.php';
 require_once APP_DIR . 'middlewares/AuthMiddleware.php';
 require_once APP_DIR . 'middlewares/AdminMiddleware.php';
@@ -52,4 +50,3 @@ $config['middlewares'] = [
     'auth'    => new AuthMiddleware(),
     'admin'   => new AdminMiddleware(),
 ];
-
